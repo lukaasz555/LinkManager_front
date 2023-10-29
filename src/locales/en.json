@@ -1,0 +1,11 @@
+{
+  "Login": "login",
+  "Logout": "logout",
+  "Register": "register",
+  "Account": "account",
+  "Home": "home",
+  "Products": "products",
+  "Orders": "orders",
+  "Settings": "settings",
+  "Password": "password"
+}
