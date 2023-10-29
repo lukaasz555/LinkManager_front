@@ -7,6 +7,7 @@
 // Styles
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
+import "../styles/buttons.scss";
 
 // Composables
 import { createVuetify } from "vuetify";
@@ -17,8 +18,11 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          primary: "#17255A",
-          secondary: "#EAE0FF",
+          primary: "#17255A", // navy
+          secondary: "#EAE0FF", // pink
+          text: "#272727", // black
+          error: "#BD1E1E",
+          gray: "#27272740",
         },
       },
     },
