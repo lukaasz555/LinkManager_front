@@ -2,7 +2,6 @@
   <div class="container">
     <header>LinkManager</header>
     <main>
-      main...
       <router-view></router-view>
     </main>
   </div>
@@ -10,6 +9,21 @@
 
 <style scoped lang="scss">
 .container {
-  border: 2px solid red;
+  header {
+    font-size: 38px;
+    // font-family? font-weight?
+    color: #17255a; // variable
+    text-align: center;
+    margin-bottom: 0.25em;
+  }
+
+  main {
+    padding: 2em 3em;
+    background: rgba(251, 251, 251, 0.2);
+    border-radius: 12px; // variable?
+    min-height: 300px;
+    min-width: 320px;
+    box-shadow: 4px 8px 40px rgba(0, 0, 0, 0.25);
+  }
 }
 </style>
