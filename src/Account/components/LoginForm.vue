@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column align-center">
     <div class="d-flex flex-column" style="width: 100%">
-      <Input v-model="loginData.login" :label="$t('Login')" />
+      <Input v-model="loginData.email" :label="$t('E-mail')" />
       <Input
         v-model="loginData.password"
         :label="$t('Password')"
