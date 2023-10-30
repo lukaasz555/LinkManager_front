@@ -1,0 +1,33 @@
+@import "./variables.scss";
+
+.v-btn {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-radius: $border-radius-default;
+  height: $button-height-default !important;
+  width: 100%;
+
+  &.default-button {
+    color: #fff;
+    background: #17255a;
+    border: 1px solid #17255a;
+  }
+  &.neutral-button {
+    background: rgba(234, 224, 255, 0.4);
+    border: 1px solid #17255a;
+    color: #17255a;
+  }
+
+  &.remove-button {
+    background: #bd1e1e;
+    border: 1px solid #bd1e1e;
+    color: #fff;
+  }
+}
+
+.v-btn.small {
+  height: $button-height-small !important;
+  font-size: 13px;
+}
