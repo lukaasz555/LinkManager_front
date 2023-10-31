@@ -8,7 +8,6 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  padding-top: 5em;
   min-height: 100vh;
   background: linear-gradient(
     180deg,
