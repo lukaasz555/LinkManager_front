@@ -1,3 +1,4 @@
+import i18n from "@/plugins/i18n";
 import { AccountRoutesNames } from "./enums/AccountRoutesNames.enum";
 
 export default [
@@ -10,7 +11,7 @@ export default [
         name: AccountRoutesNames.Login,
         component: () => import("@/Account/views/Login.vue"),
         meta: {
-          title: "Login @ LinkManager",
+          title: i18n.global.t("Login"),
         },
       },
       {
@@ -18,7 +19,7 @@ export default [
         name: AccountRoutesNames.Register,
         component: () => import("@/Account/views/Register.vue"),
         meta: {
-          title: "Register @ LinkManager",
+          title: i18n.global.t("Register"),
         },
       },
       {
@@ -26,7 +27,7 @@ export default [
         name: AccountRoutesNames.ForgottenPassword,
         component: () => import("@/Account/views/ForgottenPassword.vue"),
         meta: {
-          title: "Forgotten password @ LinkManager",
+          title: i18n.global.t("Forgotten password"),
         },
       },
     ],

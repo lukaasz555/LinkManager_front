@@ -1,3 +1,5 @@
+import { TranslateResult } from "vue-i18n";
+
 export interface AppRouteMeta {
-  title: string;
+  title: TranslateResult;
 }
