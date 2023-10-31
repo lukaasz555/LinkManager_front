@@ -27,6 +27,7 @@ onMounted(() => {
   width: 95%;
   transition: all 0.15s;
   margin-top: 2.5em;
+  align-self: center;
   main {
     padding: 2em 1em 0.5em;
     border-radius: $border-radius-outer;

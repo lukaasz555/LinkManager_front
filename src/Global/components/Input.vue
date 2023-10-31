@@ -6,7 +6,9 @@
     :type="type"
     :rules="rules"
     density="compact"
-  ></v-text-field>
+  >
+    <slot name="prepend-inner"></slot>
+  </v-text-field>
 </template>
 
 <script setup lang="ts">
@@ -36,6 +38,13 @@ defineProps({
   }
   .v-label {
     text-transform: capitalize;
+  }
+
+  .v-field__input {
+    align-items: center;
+    input {
+      margin-bottom: 0;
+    }
   }
 }
 </style>

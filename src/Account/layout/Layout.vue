@@ -17,6 +17,7 @@ import Header from "@/Global/components/Header.vue";
   width: 90%;
   transition: all 0.15s;
   margin-top: 5em;
+  align-self: center;
   main {
     padding: 2em 3em 0.5em;
     border-radius: $border-radius-outer;
