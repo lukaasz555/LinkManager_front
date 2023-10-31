@@ -7,7 +7,6 @@
 <style scoped lang="scss">
 .wrapper {
   display: flex;
-  justify-content: center;
   min-height: 100vh;
   background: linear-gradient(
     180deg,

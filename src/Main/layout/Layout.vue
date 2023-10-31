@@ -24,18 +24,22 @@ onMounted(() => {
 <style scoped lang="scss">
 @import "../../styles/variables.scss";
 .container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  //
   width: 95%;
   transition: all 0.15s;
   margin-top: 2.5em;
   align-self: center;
   main {
+    flex: 1;
     padding: 2em 1em 0.5em;
     border-radius: $border-radius-outer;
     box-shadow: $box-shadow-card;
     display: grid;
     grid-template-columns: 150px 1fr;
-    grid-template-rows: 1fr;
-    min-height: 80%; // temp
+    margin-bottom: 1em;
 
     aside {
       border-right: 1px solid #27272710; // remove it later

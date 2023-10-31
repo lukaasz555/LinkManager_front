@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="height: 100%">
     <v-tabs v-model="tab">
       <v-tab value="0" :ripple="false">
         {{ i18n.global.t("Categories") }}
@@ -39,12 +39,6 @@ onMounted(() => {
 
 section {
   margin-bottom: 2em;
-  header {
-    font-size: 24px;
-    font-weight: 400;
-    color: $col-navy-base;
-    margin-bottom: 0.5em;
-  }
 }
 
 .v-slide-group__content {
