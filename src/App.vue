@@ -1,7 +1,18 @@
 <template>
-  <router-view />
+  <div class="wrapper">
+    <router-view />
+  </div>
 </template>
 
-<script lang="ts" setup>
-  //
-</script>
+<style scoped lang="scss">
+.wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(234, 224, 255, 1) 60%,
+    rgba(234, 224, 255, 0.25) 100%
+  );
+}
+</style>

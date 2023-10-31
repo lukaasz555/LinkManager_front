@@ -1,0 +1,39 @@
+@import "./variables.scss";
+
+.v-btn {
+  text-transform: capitalize !important;
+  font-size: $font-size-button !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px;
+  border-radius: $border-radius-inner !important;
+  height: $button-height-default !important;
+  width: 100%;
+
+  &.default-button {
+    color: #fff;
+    background: $col-navy-base;
+    border: 1px solid $col-navy-base;
+  }
+  &.neutral-button {
+    color: $col-navy-base;
+    border: 1px solid;
+    background: $col-pink-light;
+  }
+
+  &.remove-button {
+    color: $col-error-base;
+    border: 1px solid;
+    background: $col-pink-light;
+  }
+
+  &.disabled-button {
+    color: $col-gray-base;
+    border: 1px solid;
+    background: $col-pink-light;
+  }
+}
+
+.v-btn.small {
+  height: $button-height-small !important;
+  font-size: $font-size-helper;
+}
