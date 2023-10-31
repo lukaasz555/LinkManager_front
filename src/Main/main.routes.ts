@@ -17,7 +17,7 @@ export default [
       {
         path: "/categories",
         name: MainRoutesNames.Categories,
-        component: () => import("@/Main/views/Categories.vue"),
+        component: () => import("@/Main/modules/Category/Categories.vue"),
         meta: {
           title: i18n.global.t("Categories"),
         },

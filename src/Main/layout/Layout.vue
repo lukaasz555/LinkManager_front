@@ -13,6 +13,12 @@
 <script setup lang="ts">
 import Header from "@/Global/components/Header.vue";
 import Nav from "../components/Nav.vue";
+import { onMounted } from "vue";
+import { useCategoriesStore } from "../modules/Category/categories.store";
+
+onMounted(() => {
+  useCategoriesStore().loadCategories();
+});
 </script>
 
 <style scoped lang="scss">
