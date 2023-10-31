@@ -16,5 +16,8 @@ export const useCategoriesStore = defineStore("categoriesStore", {
     loadCategories(): void {
       this.categories = mockCategories;
     },
+    getCategoryById(categoryId: number): Category {
+      return this.categories.find((c) => c.id === categoryId) as Category;
+    },
   },
 });
