@@ -12,7 +12,7 @@
         :label="$t('Password')"
         :type="'password'"
         class="mb-2"
-        :rules="passwordRules"
+        :rules="passwordLoginRules"
       />
       <div class="mt-2" style="width: 150px; align-self: center">
         <Button :button-text="$t('Login')" @click="saveForm" />
@@ -37,7 +37,7 @@ import Button from "@/Global/components/Button.vue";
 import router from "@/Global/router";
 import { AccountRoutesNames } from "../enums/AccountRoutesNames.enum";
 import Input from "@/Global/components/Input.vue";
-import i18n from "@/plugins/i18n";
+import { emailRules, passwordLoginRules } from "../helpers/validationRules";
 
 const loginData = ref(new LoginData());
 const loginForm = ref<HTMLFormElement | null>(null);
@@ -56,15 +56,6 @@ async function saveForm(): Promise<void> {
 function pushToRegister(): void {
   router.push({ name: AccountRoutesNames.Register });
 }
-
-const emailRules = [
-  (v: string) => !!v || i18n.global.t("E-mail is required"),
-  (v: string) => /.+@.+\..+/.test(v) || i18n.global.t("Invalid e-mail"),
-];
-
-const passwordRules = [
-  (v: string) => !!v || i18n.global.t("Password is required"),
-];
 </script>
 
 <style scoped lang="scss">
