@@ -1,0 +1,17 @@
+[
+  { "id": 1, "name": "programming", "color": "#FF5733" },
+  { "id": 2, "name": "finance", "color": "#2ECC71" },
+  { "id": 3, "name": "development", "color": "#3498DB" },
+  { "id": 4, "name": "foreign lang", "color": "#9B59B6" },
+  { "id": 5, "name": "computer sci", "color": "#E74C3C" },
+  { "id": 6, "name": "sports", "color": "#F1C40F" },
+  { "id": 7, "name": "cooking", "color": "#27AE60" },
+  { "id": 8, "name": "art", "color": "#D35400" },
+  { "id": 9, "name": "technology", "color": "#3498DB" },
+  { "id": 10, "name": "business", "color": "#9B59B6" },
+  { "id": 11, "name": "travel", "color": "#E74C3C" },
+  { "id": 12, "name": "music", "color": "#F1C40F" },
+  { "id": 13, "name": "science", "color": "#27AE60" },
+  { "id": 14, "name": "history", "color": "#D35400" },
+  { "id": 15, "name": "food", "color": "#FF5733" }
+]

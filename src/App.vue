@@ -1,13 +1,12 @@
 <template>
-  <div class="wrapper">
+  <v-app class="wrapper">
     <router-view />
-  </div>
+  </v-app>
 </template>
 
 <style scoped lang="scss">
 .wrapper {
   display: flex;
-  justify-content: center;
   min-height: 100vh;
   background: linear-gradient(
     180deg,
