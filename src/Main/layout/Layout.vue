@@ -3,7 +3,9 @@
     <Header />
     <main>
       <Nav />
-      <router-view></router-view>
+      <div class="content__container">
+        <router-view></router-view>
+      </div>
     </main>
   </div>
 </template>
@@ -31,6 +33,10 @@ import Nav from "../components/Nav.vue";
     aside {
       border-right: 1px solid #27272710; // remove it later
       height: 100%;
+    }
+
+    .content__container {
+      margin: 0 2em 0 3em;
     }
   }
 }
