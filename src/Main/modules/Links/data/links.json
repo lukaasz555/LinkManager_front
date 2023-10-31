@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "programming",
+    "title": "T, K, V in TypeScript",
     "url": "https://example.com/title-programming-finance-development",
     "categoriesIds": [1],
     "createdAt": "2023-10-31T12:00:00.000Z",
@@ -11,21 +11,21 @@
   },
   {
     "id": 2,
-    "title": "finance",
+    "title": "New objects without reference to the original object",
     "url": "https://example.com/title-finance-foreign-lang",
     "categoriesIds": [2],
     "createdAt": "2023-10-31T12:00:00.000Z",
-    "isFavorite": false,
+    "isFavorite": true,
     "notes": null,
     "readAt": null
   },
   {
     "id": 3,
-    "title": "development",
+    "title": "React basic hooks (useState, useEffect, useContext)",
     "url": "https://example.com/title-development-computer-sci",
     "categoriesIds": [3],
     "createdAt": "2023-10-31T12:00:00.000Z",
-    "isFavorite": false,
+    "isFavorite": true,
     "notes": null,
     "readAt": null
   },
