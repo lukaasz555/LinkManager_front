@@ -3,10 +3,16 @@
     <header class="d-flex align-center justify-space-between mb-0">
       <h3>{{ link.title }}</h3>
       <div>
-        <v-icon v-if="link.isFavorite" color="error" @click="setAsFavorite"
+        <v-icon
+          v-if="link.isFavorite"
+          size="small"
+          color="error"
+          @click="setAsFavorite"
           >mdi-heart</v-icon
         >
-        <v-icon v-else @click="setAsFavorite">mdi-heart-outline</v-icon>
+        <v-icon v-else size="small" @click="setAsFavorite"
+          >mdi-heart-outline</v-icon
+        >
       </div>
     </header>
 
@@ -20,7 +26,18 @@
             :key="cat"
           />
         </div>
-        <div>buttons...</div>
+        <div class="action-buttons__container">
+          <Button
+            class="small"
+            :button-type="ButtonType.Neutral"
+            :button-text="$t('Edit')"
+          />
+          <Button
+            class="small"
+            :button-type="ButtonType.Remove"
+            :button-text="$t('Remove')"
+          />
+        </div>
       </div>
     </section>
 
@@ -33,6 +50,8 @@
 <script setup lang="ts">
 import { Link } from "@/Main/models/Link";
 import { PropType } from "vue";
+import Button from "@/Global/components/Button.vue";
+import { ButtonType } from "@/Global/enums/ButtonType.enum";
 import CategoryItem from "./CategoryItem.vue";
 
 const props = defineProps({
@@ -68,6 +87,13 @@ function setAsFavorite(): void {
       transition: opacity 0.15s;
       &:hover {
         opacity: 1;
+      }
+    }
+    .action-buttons__container {
+      display: flex;
+      column-gap: 15px;
+      .v-btn {
+        max-width: 70px;
       }
     }
   }

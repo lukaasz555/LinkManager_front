@@ -1,5 +1,7 @@
 <template>
-  <LinkCard v-for="link in currentLinks" :link="link" :key="link.id" />
+  <div class="links__container">
+    <LinkCard v-for="link in currentLinks" :link="link" :key="link.id" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -14,6 +16,8 @@ const currentLinks = ref<Link[]>([]);
 
 onMounted(() => {
   linkStore.loadLinks();
-  currentLinks.value = linkStore.links.slice(0, 5);
+  currentLinks.value = linkStore.links.slice(0, 15);
 });
 </script>
+
+<style scoped lang="scss"></style>
