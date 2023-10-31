@@ -7,9 +7,7 @@ export const emailRules = [
 
 export const passwordRegisterRules = [
   (v: string) => !!v || i18n.global.t("Password is required"),
-  (v: string) =>
-    v.length >= 7 ||
-    i18n.global.t("Password should contain at least 7 characters"),
+  (v: string) => v.length >= 7 || i18n.global.t("at least 7 characters"),
 ];
 
 export const passwordLoginRules = [

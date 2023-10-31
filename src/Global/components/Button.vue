@@ -1,5 +1,11 @@
 <template>
-  <v-btn flat :class="buttonType" :ripple="false" @click="handleClick">
+  <v-btn
+    flat
+    :ripple="false"
+    :disabled="isDisabled"
+    :class="[buttonType, isDisabled ? ButtonType.Disabled : '']"
+    @click="handleClick"
+  >
     {{ buttonText }}
   </v-btn>
 </template>
@@ -20,6 +26,10 @@ defineProps({
   buttonType: {
     type: String as PropType<ButtonType>,
     default: "default-button",
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false,
   },
 });
 

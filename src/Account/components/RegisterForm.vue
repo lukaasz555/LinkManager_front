@@ -52,7 +52,7 @@ async function saveForm(): Promise<void> {
 }
 
 const confirmedPasswordRules = [
-  (v: string) => !!v || i18n.global.t("Confirm password"),
+  (v: string) => !!v || i18n.global.t("Required field"),
   (v: string) =>
     v === registerData.value.password || i18n.global.t("Different passwords"),
 ];

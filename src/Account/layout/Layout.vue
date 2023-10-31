@@ -10,6 +10,8 @@
 <style scoped lang="scss">
 @import "../../styles/variables.scss";
 .container {
+  width: 90%;
+  transition: all 0.15s;
   header {
     font-size: 38px;
     // font-family? font-weight?
@@ -20,10 +22,14 @@
 
   main {
     padding: 2em 3em 0.5em;
-    background: rgba(251, 251, 251, 0.2);
-    border-radius: 12px; // variable?
-    min-width: 320px;
-    box-shadow: 4px 8px 40px rgba(0, 0, 0, 0.25);
+    border-radius: $border-radius-outer;
+    box-shadow: $box-shadow-card;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 360px;
   }
 }
 </style>
