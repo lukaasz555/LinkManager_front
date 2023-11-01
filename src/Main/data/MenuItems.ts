@@ -1,6 +1,5 @@
 import { TranslateResult } from "vue-i18n";
 import { MainRoutesNames } from "../enums/MainRoutesNames.enum";
-import i18n from "@/plugins/i18n";
 
 export type MenuItem = {
   text: TranslateResult;
@@ -9,19 +8,19 @@ export type MenuItem = {
 
 export const MenuItems: MenuItem[] = [
   {
-    text: i18n.global.t("Links"),
+    text: MainRoutesNames.Links,
     routeName: MainRoutesNames.Links,
   },
   {
-    text: i18n.global.t("Categories"),
+    text: MainRoutesNames.Categories,
     routeName: MainRoutesNames.Categories,
   },
   {
-    text: i18n.global.t("Favorites"),
+    text: MainRoutesNames.Favorites,
     routeName: MainRoutesNames.Favorites,
   },
   {
-    text: i18n.global.t("Settings"),
+    text: MainRoutesNames.Settings,
     routeName: MainRoutesNames.Settings,
   },
 ];
