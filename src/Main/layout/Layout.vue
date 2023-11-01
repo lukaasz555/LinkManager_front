@@ -27,7 +27,6 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  //
   width: 95%;
   transition: all 0.15s;
   margin-top: 2.5em;
@@ -40,11 +39,6 @@ onMounted(() => {
     display: grid;
     grid-template-columns: 150px 1fr;
     margin-bottom: 1em;
-
-    aside {
-      border-right: 1px solid #27272710; // remove it later
-      height: 100%;
-    }
 
     .content__container {
       margin: 0 2em 0 3em;

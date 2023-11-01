@@ -29,3 +29,12 @@ const MenuItems: MenuItem[] = [
   },
 ];
 </script>
+
+<style scoped lang="scss">
+aside {
+  position: sticky;
+  top: 20px;
+  height: 200px;
+  overflow-y: auto;
+}
+</style>

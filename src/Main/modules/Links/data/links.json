@@ -3,7 +3,7 @@
     "id": 1,
     "title": "T, K, V in TypeScript",
     "url": "https://example.com/title-programming-finance-development",
-    "categoriesIds": [1],
+    "categoriesIds": [1, 3, 5],
     "createdAt": "2023-10-31T12:00:00.000Z",
     "isFavorite": false,
     "notes": null,
