@@ -19,7 +19,7 @@
     <section>
       <a :href="link.url">{{ link.url }}</a>
       <div class="d-flex align-center justify-space-between mt-2">
-        <div>
+        <div class="category-items__container">
           <CategoryItem
             v-for="cat in link.categoriesIds"
             :category-id="cat"
@@ -41,18 +41,22 @@
       </div>
     </section>
 
-    <footer>
-      <!-- bottom -->
-    </footer>
+    <LinkCardFooter
+      :are-details-visible="areDetailsVisible"
+      :createdAt="link.createdAt"
+      :notes="link.notes"
+      @toggleVisibility="toggleDetailsVisibility"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Link } from "@/Main/models/Link";
-import { PropType } from "vue";
+import { PropType, ref } from "vue";
 import Button from "@/Global/components/Button.vue";
 import { ButtonType } from "@/Global/enums/ButtonType.enum";
 import CategoryItem from "./CategoryItem.vue";
+import LinkCardFooter from "./LinkCard_Footer.vue";
 
 const props = defineProps({
   link: {
@@ -61,8 +65,14 @@ const props = defineProps({
   },
 });
 
+const areDetailsVisible = ref(false);
+
 function setAsFavorite(): void {
   console.log(`set link with id ${props.link.id} as fav`);
+}
+
+function toggleDetailsVisibility(): void {
+  areDetailsVisible.value = !areDetailsVisible.value;
 }
 </script>
 
@@ -71,7 +81,8 @@ function setAsFavorite(): void {
 .link__container {
   border: 1px solid $col-navy-base;
   border-radius: $border-radius-outer;
-  padding: 0.5em 1.25em 0.75em;
+  padding: 0.5em 1.25em 0.35em;
+  transition: height 0.2s;
 
   header {
     h3 {
@@ -88,6 +99,10 @@ function setAsFavorite(): void {
       &:hover {
         opacity: 1;
       }
+    }
+    .category-items__container {
+      display: flex;
+      gap: 15px;
     }
     .action-buttons__container {
       display: flex;

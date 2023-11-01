@@ -1,12 +1,12 @@
 <template>
-  <div
+  <button
     class="category-item__wrapper"
     :style="{ background: `${category.color}` }"
   >
     <p :style="{ color: `${getContrastColor(category.color)}` }">
       {{ category.name }}
     </p>
-  </div>
+  </button>
 </template>
 
 <script setup lang="ts">
