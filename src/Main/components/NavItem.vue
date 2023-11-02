@@ -1,12 +1,12 @@
 <template>
   <v-btn class="nav-item-button" flat :ripple="false" @click="pushToRoute">
-    {{ navItem.text }}
+    {{ $t(navItem.text) }}
   </v-btn>
 </template>
 
 <script setup lang="ts">
 import { PropType } from "vue";
-import { MenuItem } from "../data/MenuItem";
+import { MenuItem } from "../data/MenuItems";
 import router from "@/Global/router";
 
 const props = defineProps({

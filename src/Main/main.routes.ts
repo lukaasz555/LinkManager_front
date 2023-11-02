@@ -9,7 +9,7 @@ export default [
       {
         path: "/",
         name: MainRoutesNames.Links,
-        component: () => import("@/Main/views/Links.vue"),
+        component: () => import("@/Main/modules/Links/LinksView.vue"),
         meta: {
           title: i18n.global.t("Home"),
         },

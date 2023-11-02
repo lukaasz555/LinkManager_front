@@ -4,6 +4,18 @@
   </v-app>
 </template>
 
+<script setup lang="ts">
+import { onMounted } from "vue";
+import i18n from "./plugins/i18n";
+import { LanguageEnum } from "./Global/enums/Language.enum";
+
+onMounted(() => {
+  const lang = localStorage.getItem("lang");
+  if (lang) i18n.global.locale = lang as LanguageEnum;
+  else i18n.global.locale = LanguageEnum.EN;
+});
+</script>
+
 <style scoped lang="scss">
 .wrapper {
   display: flex;

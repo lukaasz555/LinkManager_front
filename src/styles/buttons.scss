@@ -31,9 +31,12 @@
     border: 1px solid;
     background: $col-pink-light;
   }
+  &.no-border {
+    border: none;
+  }
 }
 
 .v-btn.small {
   height: $button-height-small !important;
-  font-size: $font-size-helper;
+  font-size: $font-size-helper !important;
 }

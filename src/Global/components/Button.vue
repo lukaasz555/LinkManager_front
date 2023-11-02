@@ -3,10 +3,11 @@
     flat
     :ripple="false"
     :disabled="isDisabled"
-    :class="[buttonType, isDisabled ? ButtonType.Disabled : '']"
+    :class="[buttonType, isDisabled ? ButtonType.Disabled : '', buttonClass]"
     @click="handleClick"
   >
     {{ buttonText }}
+    <slot name="append"></slot>
   </v-btn>
 </template>
 
@@ -26,6 +27,10 @@ defineProps({
   buttonType: {
     type: String as PropType<ButtonType>,
     default: "default-button",
+  },
+  buttonClass: {
+    type: String,
+    default: undefined,
   },
   isDisabled: {
     type: Boolean,
