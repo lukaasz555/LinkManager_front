@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
+    "@tanstack/vue-query": "^5.8.1",
     "axios": "^1.6.0",
     "class-transformer": "^0.5.1",
     "core-js": "^3.29.0",

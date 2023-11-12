@@ -1,4 +1,6 @@
 import { defineStore } from "pinia";
+import { AccountDto, createUserFn } from "./account.service";
+import { useAppStore } from "@/Global/store/app";
 
 type BaseUserData = {
   id: number;
@@ -22,9 +24,25 @@ export const useAccountStore = defineStore("accountStore", {
     login(): void {
       // ...
     },
-    register(): void {
-      // ...
+    async registerMutation(accountDto: AccountDto) {
+      const appStore = useAppStore();
+      appStore.setLoading();
+
+      try {
+        const res = await createUserFn(accountDto);
+        // console.log("res success: ", res);
+        appStore.setError(false);
+      } catch (err: any) {
+        appStore.setError(true, err.errorMessage);
+      } finally {
+        appStore.setLoading();
+      }
     },
+
+    async register(accountDto: AccountDto) {
+      await this.registerMutation(accountDto);
+    },
+
     logout(): void {
       // ...
     },
