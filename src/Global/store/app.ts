@@ -20,13 +20,8 @@ export const useAppStore = defineStore("app", {
       this.isLoading = !this.isLoading;
     },
     setError(value: boolean, errorMessage?: string): void {
-      if (value) {
-        this.isError = false;
-        this.errorMessage = undefined;
-      } else {
-        this.isError = true;
-        this.errorMessage = errorMessage;
-      }
+      this.isError = value;
+      this.isError ? (this.errorMessage = errorMessage) : undefined;
     },
   },
 });
