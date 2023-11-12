@@ -26,5 +26,8 @@
   "Sign up": "Zarejestruj się",
   "Confirm password": "Powtórz hasło",
   "Password is required": "Hasło jest wymagane",
-  "E-mail": "E-mail"
+  "E-mail": "E-mail",
+  "Invalid e-mail": "Nieprawidłowy e-mail",
+  "at least 7 characters": "Minimum 7 znaków",
+  "Different passwords": "Różne hasła"
 }
