@@ -9,21 +9,21 @@
       />
       <Input
         v-model="registerData.password"
-        :label="$t('password')"
+        :label="$t('Password')"
         :type="'password'"
         :rules="passwordRegisterRules"
         class="mb-2"
       />
       <Input
         v-model="confirmedPassword"
-        :label="$t('confirm password')"
+        :label="$t('Confirm password')"
         :type="'password'"
         :rules="confirmedPasswordRules"
         class="mb-2"
       />
     </v-form>
     <div class="mt-1 mb-3" style="width: 150px; align-self: center">
-      <Button :button-text="$t('Sign up!')" @click="saveForm" />
+      <Button :button-text="$t('Sign up')" @click="saveForm" />
     </div>
   </div>
 </template>

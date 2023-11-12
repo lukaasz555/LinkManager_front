@@ -20,5 +20,11 @@
   "Name": "Name",
   "Cancel": "Cancel",
   "Color": "Color",
-  "Language": "Language"
+  "Language": "Language",
+  "E-mail is required": "E-mail is required",
+  "Required field": "Required field",
+  "Sign up": "Sign up",
+  "Confirm password": "Confirm password",
+  "Password is required": "Password is required",
+  "E-mail": "E-mail"
 }
