@@ -9,12 +9,9 @@ interface AccountDto {
 export async function loginUser(
   loginData: AccountDto
 ): Promise<{ token: string }> {
-  return postData<LoginData, { token: string }>(
-    "/api/v1/auth/login",
-    loginData
-  );
+  return postData<LoginData, { token: string }>("/api/auth/login", loginData);
 }
 
 export async function registerUser(registerDto: AccountDto): Promise<number> {
-  return postData<AccountDto, number>("api/v1/auth/register", registerDto);
+  return postData<AccountDto, number>("api/auth/register", registerDto);
 }

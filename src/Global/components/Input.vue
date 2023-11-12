@@ -32,7 +32,7 @@ defineProps({
 
 <style scoped lang="scss">
 @import "../../styles/textfields.scss";
-::v-deep.v-input {
+:deep(.v-input) {
   .v-field {
     border-radius: 8px;
   }
