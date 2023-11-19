@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { AccountDto, createUserFn } from "./account.service";
 import { useAppStore } from "@/Global/store/app";
+import i18n from "@/plugins/i18n";
 
 type BaseUserData = {
   id: number;
@@ -31,6 +32,10 @@ export const useAccountStore = defineStore("accountStore", {
       try {
         const res = await createUserFn(accountDto);
         // console.log("res success: ", res);
+        appStore.setSuccess(
+          true,
+          i18n.global.t("Success! New account created.")
+        );
         appStore.setError(false);
       } catch (err: any) {
         appStore.setError(true, err.errorMessage);

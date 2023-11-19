@@ -2,6 +2,7 @@
   <v-app class="wrapper">
     <router-view />
     <ErrorMessage />
+    <SuccessMessage />
   </v-app>
 </template>
 
@@ -10,6 +11,7 @@ import { onMounted } from "vue";
 import i18n from "./plugins/i18n";
 import { LanguageEnum } from "./Global/enums/Language.enum";
 import ErrorMessage from "./Global/components/ErrorMessage.vue";
+import SuccessMessage from "./Global/components/SuccessMessage.vue";
 
 onMounted(() => {
   const lang = localStorage.getItem("lang");
