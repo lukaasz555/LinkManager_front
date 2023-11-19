@@ -30,8 +30,7 @@ export const useAccountStore = defineStore("accountStore", {
       appStore.setLoading();
 
       try {
-        const res = await createUserFn(accountDto);
-        // console.log("res success: ", res);
+        await createUserFn(accountDto);
         appStore.setSuccess(
           true,
           i18n.global.t("Success! New account created.")

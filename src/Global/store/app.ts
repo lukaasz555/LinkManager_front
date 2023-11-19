@@ -1,5 +1,3 @@
-// Utilities
-import i18n from "@/plugins/i18n";
 import { defineStore } from "pinia";
 import { TranslateResult } from "vue-i18n";
 
