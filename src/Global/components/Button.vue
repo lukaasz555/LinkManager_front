@@ -10,9 +10,9 @@
     {{ buttonText }}
     <slot name="append"></slot>
   </v-btn>
-  <div v-if="appStore.isError">
+  <!-- <div v-if="appStore.isError">
     <p class="error-message">{{ appStore.errorMessage }}</p>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
