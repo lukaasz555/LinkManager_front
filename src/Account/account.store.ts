@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import { AccountDto, createUserFn } from "./account.service";
-import { useAppStore } from "@/Global/store/app";
+import { AccountDto, postAccountDto } from "./account.service";
+import { accountMutation } from "./account.mutations";
 import i18n from "@/plugins/i18n";
 
 type BaseUserData = {
@@ -22,29 +22,19 @@ const initState = (): AccountStore => ({
 export const useAccountStore = defineStore("accountStore", {
   state: initState,
   actions: {
-    login(): void {
-      // ...
+    async login(accountDto: AccountDto): Promise<void> {
+      await accountMutation<AccountDto>(
+        postAccountDto,
+        accountDto,
+        i18n.global.t("Login success")
+      );
     },
-    async registerMutation(accountDto: AccountDto) {
-      const appStore = useAppStore();
-      appStore.setLoading();
-
-      try {
-        await createUserFn(accountDto);
-        appStore.setSuccess(
-          true,
-          i18n.global.t("Success! New account created.")
-        );
-        appStore.setError(false);
-      } catch (err: any) {
-        appStore.setError(true, err.errorMessage);
-      } finally {
-        appStore.setLoading();
-      }
-    },
-
     async register(accountDto: AccountDto) {
-      await this.registerMutation(accountDto);
+      await accountMutation<AccountDto>(
+        postAccountDto,
+        accountDto,
+        i18n.global.t("Success ! New account created.")
+      );
     },
 
     logout(): void {
