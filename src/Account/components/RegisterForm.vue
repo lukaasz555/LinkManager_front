@@ -38,7 +38,7 @@ import { emailRules, passwordRegisterRules } from "../helpers/validationRules";
 import { AccountDto } from "../account.service";
 
 const emit = defineEmits<{
-  (e: "createUser", value: AccountDto): void;
+  (e: "createUser", data: AccountDto): void;
 }>();
 
 const registerData = ref(new RegisterData());
