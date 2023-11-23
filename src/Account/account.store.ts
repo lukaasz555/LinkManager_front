@@ -28,7 +28,7 @@ export const useAccountStore = defineStore("accountStore", {
     async register(accountDto: AccountDto) {
       await registerMutation(
         accountDto,
-        i18n.global.t("Success ! New account created.")
+        i18n.global.t("Your have created an account. Now you can sign in.")
       );
     },
 

@@ -2,6 +2,8 @@ import { useAppStore } from "@/Global/store/app";
 import { TranslateResult } from "vue-i18n";
 import { AccountDto, accountLogin, accountRegister } from "./account.service";
 import { useAccountStore } from "./account.store";
+import router from "@/Global/router";
+import { AccountRoutesNames } from "./enums/AccountRoutesNames.enum";
 
 export async function registerMutation(
   accountDto: AccountDto,
@@ -14,6 +16,7 @@ export async function registerMutation(
     await accountRegister(accountDto);
     appStore.setSuccess(true, successMessage);
     appStore.setError(false);
+    router.push({ name: AccountRoutesNames.Login });
   } catch (err: any) {
     appStore.setError(true, err.errorMessage);
   } finally {
