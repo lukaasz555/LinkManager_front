@@ -14,7 +14,7 @@ import ErrorMessage from "./Global/components/ErrorMessage.vue";
 import SuccessMessage from "./Global/components/SuccessMessage.vue";
 
 onMounted(() => {
-  const lang = localStorage.getItem("lang");
+  const lang = localStorage.getItem("user-lang");
   if (lang) i18n.global.locale = lang as LanguageEnum;
   else i18n.global.locale = LanguageEnum.EN;
 });

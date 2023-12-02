@@ -36,11 +36,11 @@ const selectedLanguage = ref();
 
 function setLanguage(language: LanguageEnum): void {
   i18n.global.locale = language;
-  localStorage.setItem("lang", language);
+  localStorage.setItem("user-lang", language);
 }
 
 onBeforeMount(() => {
-  const lang = localStorage.getItem("lang");
+  const lang = localStorage.getItem("user-lang");
   if (lang) selectedLanguage.value = lang as LanguageEnum;
   else selectedLanguage.value = LanguageEnum.EN;
 });

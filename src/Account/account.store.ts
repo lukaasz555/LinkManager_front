@@ -35,6 +35,7 @@ export const useAccountStore = defineStore("accountStore", {
     setTokenAndLoggedIn(token: string): void {
       this.token = token;
       this.isLoggedIn = true;
+      localStorage.setItem("user-token", token);
     },
 
     logout(): void {
