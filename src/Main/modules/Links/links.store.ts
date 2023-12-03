@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { Link } from "@/Main/models/Link";
-import mockLinks from "./data/links.json";
+import { getLinks } from "./links.service";
 
 interface LinkStore {
   links: Link[];
@@ -15,8 +15,8 @@ const initState = (): LinkStore => ({
 export const useLinkStore = defineStore("linkStore", {
   state: initState,
   actions: {
-    loadLinks(): void {
-      this.links = mockLinks;
+    async loadLinks(): Promise<void> {
+      this.links = await getLinks();
     },
   },
 });
