@@ -12,6 +12,7 @@ export default [
         component: () => import("@/Main/modules/Links/LinksView.vue"),
         meta: {
           title: i18n.global.t("Home"),
+          isLoginRequired: true,
         },
       },
       {
@@ -20,6 +21,7 @@ export default [
         component: () => import("@/Main/modules/Category/Categories.vue"),
         meta: {
           title: i18n.global.t("Categories"),
+          isLoginRequired: true,
         },
       },
       {
@@ -28,6 +30,7 @@ export default [
         component: () => import("@/Main/views/Favorites.vue"),
         meta: {
           title: i18n.global.t("Favorites"),
+          isLoginRequired: true,
         },
       },
       {
@@ -36,6 +39,7 @@ export default [
         component: () => import("@/Main/views/Settings.vue"),
         meta: {
           title: i18n.global.t("Settings"),
+          isLoginRequired: true,
         },
       },
     ],
