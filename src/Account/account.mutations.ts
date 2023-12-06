@@ -4,6 +4,7 @@ import { AccountDto, accountLogin, accountRegister } from "./account.service";
 import { useAccountStore } from "./account.store";
 import router from "@/Global/router";
 import { AccountRoutesNames } from "./enums/AccountRoutesNames.enum";
+import { getIdAndEmailFromToken } from "./helpers/getIdAndEmailFromToken";
 
 export async function registerMutation(
   accountDto: AccountDto,
@@ -33,10 +34,14 @@ export async function loginMutation(
   appStore.setLoading();
 
   try {
-    const token = (await accountLogin(accountDto)) as unknown as string;
+    const res: { jwtToken: string; refreshToken: string } = (await accountLogin(
+      accountDto
+    )) as unknown as { jwtToken: string; refreshToken: string };
+    const { id, email } = getIdAndEmailFromToken(res.jwtToken);
     appStore.setSuccess(true, successMessage);
     appStore.setError(false);
-    accountStore.setTokenAndLoggedIn(token);
+    accountStore.setTokenAndLoggedIn(res.jwtToken, res.refreshToken);
+    accountStore.setBaseUserData(id, email);
   } catch (err: any) {
     appStore.setError(true, err.errorMessage);
   } finally {

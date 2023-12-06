@@ -9,6 +9,7 @@ export async function postData<T, K>(
     const apiRes = await API.post(route, body);
     return apiRes.data;
   } catch (err) {
+    console.log(err);
     if (axios.isAxiosError(err)) {
       const axiosErr: AxiosError<K> = err;
       if (axiosErr.response && axiosErr.response.data) {
@@ -20,6 +21,10 @@ export async function postData<T, K>(
 }
 
 export async function getData<T>(route: string): Promise<T> {
-  const apiRes = await API.get(route);
-  return apiRes.data;
+  try {
+    const apiRes = await API.get(route);
+    return apiRes.data;
+  } catch (err) {
+    throw Error("GetData error");
+  }
 }
