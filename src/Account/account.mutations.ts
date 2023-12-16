@@ -34,13 +34,13 @@ export async function loginMutation(
   appStore.setLoading();
 
   try {
-    const res: { jwtToken: string; refreshToken: string } = (await accountLogin(
+    const res: { jwtToken: string } = (await accountLogin(
       accountDto
-    )) as unknown as { jwtToken: string; refreshToken: string };
+    )) as unknown as { jwtToken: string };
     const { id, email } = getIdAndEmailFromToken(res.jwtToken);
     appStore.setSuccess(true, successMessage);
     appStore.setError(false);
-    accountStore.setTokenAndLoggedIn(res.jwtToken, res.refreshToken);
+    accountStore.setTokenAndLoggedIn(res.jwtToken);
     accountStore.setBaseUserData(id, email);
   } catch (err: any) {
     appStore.setError(true, err.errorMessage);

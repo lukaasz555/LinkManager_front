@@ -8,7 +8,6 @@ import { AccountRoutesNames } from "./enums/AccountRoutesNames.enum";
 class BaseUserData {
   id = "";
   email = "";
-  refreshToken = "";
 
   setData(id: string, email: string): this {
     this.email = email;
@@ -41,11 +40,10 @@ export const useAccountStore = defineStore("accountStore", {
       );
     },
 
-    setTokenAndLoggedIn(accessToken: string, refreshToken: string): void {
+    setTokenAndLoggedIn(accessToken: string): void {
       this.token = accessToken;
       this.isLoggedIn = true;
       localStorage.setItem("user-token", accessToken);
-      localStorage.setItem("user-refresh-token", refreshToken);
     },
 
     setBaseUserData(id: string, email: string): void {
