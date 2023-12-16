@@ -1,16 +1,21 @@
-import { useAccountStore } from "@/Account/account.store";
 import axios from "axios";
+import { useAccountStore } from "@/Account/account.store";
 
 export const API = axios.create({
-  baseURL: "https://localhost:4000",
+  baseURL: "http://localhost:4000",
 });
 
-API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("user-token");
+API.interceptors.request.use(async (config) => {
+  let token = localStorage.getItem("user-token") || "";
   const userId = useAccountStore().baseUserData?.id;
 
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  if (userId) config.headers[userId] = userId;
+  if (!token) {
+    const storeToken = useAccountStore().token;
+    if (storeToken) token = storeToken;
+  }
+
+  if (token) config.headers["Authorization"] = `Bearer ${token}`;
+  if (userId) config.headers["userId"] = userId;
 
   return config;
 });

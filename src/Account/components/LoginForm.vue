@@ -38,6 +38,11 @@ import router from "@/Global/router";
 import { AccountRoutesNames } from "../enums/AccountRoutesNames.enum";
 import Input from "@/Global/components/Input.vue";
 import { emailRules, passwordLoginRules } from "../helpers/validationRules";
+import { AccountDto } from "../account.service";
+
+const emit = defineEmits<{
+  (e: "loginUser", data: AccountDto): void;
+}>();
 
 const loginData = ref(new LoginData());
 const loginForm = ref<HTMLFormElement | null>(null);
@@ -46,9 +51,9 @@ async function saveForm(): Promise<void> {
   if (loginForm.value) {
     const { valid } = await loginForm.value.validate();
     if (valid) {
-      console.log("api post");
+      emit("loginUser", loginData.value);
     } else {
-      console.log("throw err or sth");
+      // console.log("throw err or sth");
     }
   }
 }

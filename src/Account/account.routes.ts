@@ -12,6 +12,7 @@ export default [
         component: () => import("@/Account/views/Login.vue"),
         meta: {
           title: i18n.global.t("Login"),
+          isLoginRequired: false,
         },
       },
       {
@@ -20,6 +21,7 @@ export default [
         component: () => import("@/Account/views/Register.vue"),
         meta: {
           title: i18n.global.t("Register"),
+          isLoginRequired: false,
         },
       },
       {
@@ -28,6 +30,7 @@ export default [
         component: () => import("@/Account/views/ForgottenPassword.vue"),
         meta: {
           title: i18n.global.t("Forgotten password"),
+          isLoginRequired: false,
         },
       },
     ],

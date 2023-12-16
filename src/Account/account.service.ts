@@ -1,17 +1,13 @@
 import { postData } from "@/Global/service/global.service";
-import { LoginData } from "./vm/LoginData";
-
-interface AccountDto {
+export interface AccountDto {
   email: string;
   password: string;
 }
 
-export async function loginUser(
-  loginData: AccountDto
-): Promise<{ token: string }> {
-  return postData<LoginData, { token: string }>("/api/auth/login", loginData);
+export async function accountRegister(accountDto: AccountDto) {
+  return await postData<AccountDto, string>("api/auth/register", accountDto);
 }
 
-export async function registerUser(registerDto: AccountDto): Promise<number> {
-  return postData<AccountDto, number>("api/auth/register", registerDto);
+export async function accountLogin(accountDto: AccountDto) {
+  return await postData<AccountDto, string>("api/auth/login", accountDto);
 }
