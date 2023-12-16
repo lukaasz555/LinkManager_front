@@ -2,7 +2,7 @@ import { TableHeader } from "@/Global/types/TableHeader";
 import { Category } from "@/Main/models/Category";
 import i18n from "@/plugins/i18n";
 
-export const categoriesHeaders: TableHeader<Category> = [
+export const categoriesHeaders: TableHeader<Category>[] = [
   {
     title: String(i18n.global.t("Category name")),
     key: "name",

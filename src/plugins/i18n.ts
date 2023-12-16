@@ -5,7 +5,7 @@ import pl from "../locales/pl.json";
 export default createI18n({
   locale: "en",
   messages: {
-    en: en,
-    pl: pl,
+    en,
+    pl,
   },
 });
