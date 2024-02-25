@@ -5,9 +5,9 @@ export interface AccountDto {
 }
 
 export async function accountRegister(accountDto: AccountDto) {
-  return await postData<AccountDto, string>("api/auth/register", accountDto);
+  return await postData<AccountDto, string>("/auth/register", accountDto);
 }
 
 export async function accountLogin(accountDto: AccountDto) {
-  return await postData<AccountDto, string>("api/auth/login", accountDto);
+  return await postData<AccountDto, string>("/auth/login", accountDto);
 }
