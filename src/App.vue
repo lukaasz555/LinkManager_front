@@ -18,10 +18,6 @@ onMounted(() => {
   if (lang) i18n.global.locale = lang as LanguageEnum;
   else i18n.global.locale = LanguageEnum.EN;
 });
-
-function doNothing() {
-  // deploy
-}
 </script>
 
 <style scoped lang="scss">
