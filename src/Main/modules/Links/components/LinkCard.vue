@@ -6,7 +6,7 @@
       :is-favorite="link.isFavorite"
     />
 
-    <LinkCardMain :url="link.url" :categories-ids="link.categoriesIds" />
+    <LinkCardMain :url="link.url" :categories-ids="[link.categoryId]" />
 
     <LinkCardFooter
       :are-details-visible="areDetailsVisible"

@@ -5,7 +5,7 @@ export class Link {
   id = -getRandomID();
   title = "";
   url = "";
-  categoriesIds: number[] = [];
+  categoryId = 0;
   createdAt: string = new Date().toISOString();
   isFavorite = false;
   notes: string | null = null;

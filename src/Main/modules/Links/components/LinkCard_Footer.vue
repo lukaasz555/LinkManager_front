@@ -7,7 +7,7 @@
     >
       <div class="details__container--row">
         <p>{{ $t("Created") }}:</p>
-        <p>{{ createdAt.substring(0, 10) }}</p>
+        <p>{{ createdAt ? createdAt.substring(0, 10) : "qwe" }}</p>
       </div>
       <div v-if="notes" class="details__container--row">
         <p>{{ $t("Notes") }}:</p>
@@ -93,7 +93,7 @@ footer {
     display: flex;
     flex-direction: column;
     &.isActive {
-      max-height: auto; /* Adjust this value as needed */
+      max-height: auto;
       opacity: 1;
       visibility: visible;
       transition: max-height 0.15s, opacity 0.15s;
