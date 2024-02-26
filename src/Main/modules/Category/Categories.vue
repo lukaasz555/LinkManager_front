@@ -30,7 +30,7 @@ const categoriesStore = useCategoriesStore();
 const tab = ref("0");
 
 onMounted(() => {
-  if (!categoriesStore.categories.length) categoriesStore.loadCategories();
+  categoriesStore.loadCategories();
 });
 </script>
 

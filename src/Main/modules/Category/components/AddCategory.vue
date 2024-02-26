@@ -49,6 +49,7 @@ import Button from "@/Global/components/Button.vue";
 import { ref } from "vue";
 import { CategoryData } from "../vm/CategoryData";
 import { ButtonType } from "@/Global/enums/ButtonType.enum";
+import { addCategory } from "../categories.service";
 
 const categoryData = ref(new CategoryData());
 const isPickerVisible = ref(false);
@@ -57,8 +58,8 @@ function openColorPicker(): void {
   isPickerVisible.value = true;
 }
 
-function saveForm(): void {
-  console.log(categoryData.value);
+async function saveForm(): Promise<void> {
+  addCategory(categoryData.value);
 }
 </script>
 

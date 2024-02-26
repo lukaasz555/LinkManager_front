@@ -11,9 +11,8 @@
 
 <script setup lang="ts">
 import { Category } from "@/Main/models/Category";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useCategoriesStore } from "../../Category/categories.store";
-import { onBeforeMount } from "vue";
 import { getContrastColor } from "@/Global/helpers/getContrastColor";
 
 const props = defineProps({
@@ -26,9 +25,18 @@ const props = defineProps({
 const categoriesStore = useCategoriesStore();
 const category = ref(new Category());
 
-onBeforeMount(() => {
-  category.value = categoriesStore.getCategoryById(props.categoryId);
-});
+watch(
+  () => props.categoryId,
+  async (categoryId) => {
+    if (categoriesStore.categories.length) {
+      category.value = categoriesStore.getCategoryById(categoryId);
+    } else {
+      await categoriesStore.loadCategories();
+      category.value = categoriesStore.getCategoryById(categoryId);
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <style scoped lang="scss">
