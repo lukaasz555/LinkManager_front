@@ -1,7 +1,12 @@
 <template>
   <div class="mt-5 addcategory__wrapper">
-    <v-form id="categoryForm">
-      <Input v-model="categoryData.name" :label="$t('Name')" class="mb-2" />
+    <v-form id="categoryForm" ref="categoryForm">
+      <Input
+        v-model="categoryData.name"
+        :label="$t('Name')"
+        class="mb-2"
+        :rules="[rules.required, rules.maxLengthCategoryName]"
+      />
       <v-menu
         v-model="isPickerVisible"
         attach="categoryForm"
@@ -14,6 +19,7 @@
             v-model="categoryData.color"
             :label="$t('Color')"
             class="mb-2 color-picker"
+            :rules="[rules.required, rules.lengthCategoryColor]"
             @focus="isPickerVisible = true"
           >
             <template #prepend-inner>
@@ -44,23 +50,45 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import Input from "@/Global/components/Input.vue";
 import Button from "@/Global/components/Button.vue";
-import { ref } from "vue";
-import { CategoryData } from "../vm/CategoryData";
 import { ButtonType } from "@/Global/enums/ButtonType.enum";
+import { CategoryData } from "../vm/CategoryData";
 import { addCategory } from "../categories.service";
+import i18n from "@/plugins/i18n";
+import { useAppStore } from "@/Global/store/app";
 
 const categoryData = ref(new CategoryData());
 const isPickerVisible = ref(false);
+const categoryForm = ref<HTMLFormElement | null>(null);
 
 function openColorPicker(): void {
   isPickerVisible.value = true;
 }
 
 async function saveForm(): Promise<void> {
-  addCategory(categoryData.value);
+  if (categoryForm.value) {
+    console.log("categoryForm.value - ", categoryForm.value);
+    const { valid } = await categoryForm.value.validate();
+    if (valid) {
+      addCategory(categoryData.value);
+    } else {
+      useAppStore().setError(true, `${i18n.global.t("Fill the input fields")}`);
+    }
+  } else {
+    useAppStore().setError(true, `${i18n.global.t("Fill the input fields")}`);
+  }
 }
+
+const rules = {
+  required: (val: string) => !!val || `${i18n.global.t("Required field")}`,
+  maxLengthCategoryName: (val: string) =>
+    val.length <= 20 || `${i18n.global.t("Max 20 characters")}`,
+  lengthCategoryColor: (val: string) =>
+    (val.length <= 7 && val.length >= 4) ||
+    `${i18n.global.t("Allowed formats: #FFF, #FFFFFF")}`,
+};
 </script>
 
 <style scoped lang="scss">
