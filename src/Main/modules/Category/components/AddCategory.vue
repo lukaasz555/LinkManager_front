@@ -42,8 +42,12 @@
         ></v-color-picker>
       </v-menu>
       <div class="d-flex buttons-container">
-        <Button @click="saveForm" />
-        <Button :button-text="$t('Cancel')" :button-type="ButtonType.Neutral" />
+        <Button @click="onSaveClick" />
+        <Button
+          :button-text="$t('Cancel')"
+          :button-type="ButtonType.Neutral"
+          @click="onCancelClick"
+        />
       </div>
     </v-form>
   </div>
@@ -67,18 +71,34 @@ function openColorPicker(): void {
   isPickerVisible.value = true;
 }
 
-async function saveForm(): Promise<void> {
+async function onSaveClick(): Promise<void> {
   if (categoryForm.value) {
-    console.log("categoryForm.value - ", categoryForm.value);
     const { valid } = await categoryForm.value.validate();
     if (valid) {
-      addCategory(categoryData.value);
+      await addCategory(categoryData.value)
+        .then(() => {
+          useAppStore().setSuccess(
+            true,
+            `${i18n.global.t("New category created")}`
+          );
+        })
+        .catch(() => {
+          useAppStore().setError(
+            true,
+            `${i18n.global.t("Something went wrong. Try again.")}`
+          );
+        });
     } else {
       useAppStore().setError(true, `${i18n.global.t("Fill the input fields")}`);
     }
   } else {
     useAppStore().setError(true, `${i18n.global.t("Fill the input fields")}`);
   }
+}
+
+function onCancelClick(): void {
+  categoryForm.value?.reset();
+  categoryData.value = new CategoryData();
 }
 
 const rules = {
