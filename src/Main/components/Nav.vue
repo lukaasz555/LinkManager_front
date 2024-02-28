@@ -1,7 +1,11 @@
 <template>
   <aside>
     <NavItem v-for="item in MenuItems" :navItem="item" :key="item.routeName" />
-    <v-btn @click="accountStore.logout"> Logout </v-btn>
+    <Button
+      :buttonType="ButtonType.Neutral"
+      :buttonText="i18n.global.t('Logout')"
+      @click="accountStore.logout"
+    />
     <LanguageChooser />
   </aside>
 </template>
@@ -11,6 +15,9 @@ import { MenuItems } from "../data/MenuItems";
 import NavItem from "./NavItem.vue";
 import LanguageChooser from "../components/LanguageChooser.vue";
 import { useAccountStore } from "@/Account/account.store";
+import Button from "@/Global/components/Button.vue";
+import { ButtonType } from "@/Global/enums/ButtonType.enum";
+import i18n from "@/plugins/i18n";
 
 const accountStore = useAccountStore();
 </script>
