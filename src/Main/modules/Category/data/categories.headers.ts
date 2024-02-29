@@ -1,6 +1,6 @@
 import { TableHeader } from "@/Global/types/TableHeader";
 import { Category } from "@/Main/models/Category";
-import i18n from "@/plugins/i18n";
+import { i18n } from "@/plugins/i18n";
 
 export const categoriesHeaders: TableHeader<Category>[] = [
   {

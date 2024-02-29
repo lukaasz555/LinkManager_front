@@ -13,7 +13,7 @@
         <Button
           class="small"
           :button-type="ButtonType.Neutral"
-          :button-text="$t('Edit')"
+          :button-text="i18n.global.t('Edit')"
         />
         <Button
           class="small"
@@ -30,6 +30,7 @@ import { PropType } from "vue";
 import { ButtonType } from "@/Global/enums/ButtonType.enum";
 import CategoryItem from "./CategoryItem.vue";
 import Button from "@/Global/components/Button.vue";
+import { i18n } from "@/plugins/i18n";
 
 defineProps({
   url: {

@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { AccountDto } from "./account.service";
 import { registerMutation, loginMutation } from "./account.mutations";
-import i18n from "@/plugins/i18n";
+import { i18n } from "@/plugins/i18n";
 import router from "@/Global/router";
 import { AccountRoutesNames } from "./enums/AccountRoutesNames.enum";
 

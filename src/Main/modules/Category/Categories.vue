@@ -24,7 +24,7 @@ import { onMounted, ref } from "vue";
 import { useCategoriesStore } from "./categories.store";
 import CategoriesTable from "./components/CategoriesTable.vue";
 import AddCategory from "./components/AddCategory.vue";
-import i18n from "@/plugins/i18n";
+import { i18n } from "@/plugins/i18n";
 
 const categoriesStore = useCategoriesStore();
 const tab = ref("0");

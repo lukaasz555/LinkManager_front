@@ -33,7 +33,7 @@ import { ref } from "vue";
 import { RegisterData } from "../vm/RegisterData";
 import Input from "@/Global/components/Input.vue";
 import Button from "@/Global/components/Button.vue";
-import i18n from "@/plugins/i18n";
+import { i18n } from "@/plugins/i18n";
 import { emailRules, passwordRegisterRules } from "../helpers/validationRules";
 import { AccountDto } from "../account.service";
 

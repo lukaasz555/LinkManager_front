@@ -60,7 +60,7 @@ import Button from "@/Global/components/Button.vue";
 import { ButtonType } from "@/Global/enums/ButtonType.enum";
 import { CategoryData } from "../vm/CategoryData";
 import { addCategory } from "../categories.service";
-import i18n from "@/plugins/i18n";
+import { i18n } from "@/plugins/i18n";
 import { useAppStore } from "@/Global/store/app";
 
 const categoryData = ref(new CategoryData());
