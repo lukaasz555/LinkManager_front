@@ -2,7 +2,7 @@
   <div class="d-flex flex-column align-start mt-5 ml-4">
     <p class="language-label">{{ $t("Language") }}</p>
     <v-btn-toggle
-      v-model="selectedLanguage"
+      v-model="$i18n.locale"
       mandatory
       selectedClass="selected"
       density="compact"
@@ -28,21 +28,30 @@
 
 <script setup lang="ts">
 import { LanguageEnum } from "@/Global/enums/Language.enum";
-import i18n from "@/plugins/i18n";
+import { i18n } from "@/plugins/i18n";
 import { onBeforeMount } from "vue";
 import { ref } from "vue";
 
-const selectedLanguage = ref();
+const selectedLanguage = ref(LanguageEnum.EN);
 
 function setLanguage(language: LanguageEnum): void {
+  console.log("setLanguage to - ", language);
+  // i18n.global.locale = language;
   i18n.global.locale = language;
   localStorage.setItem("user-lang", language);
+  // console.log("vue-i18n - ", i18n.global);
+  // localStorage.setItem("user-lang", i18n.global.locale);
 }
 
 onBeforeMount(() => {
+  // Here I want to get & assign language from LocalStorage
+  console.group("onBeforeMount");
   const lang = localStorage.getItem("user-lang");
-  if (lang) selectedLanguage.value = lang as LanguageEnum;
-  else selectedLanguage.value = LanguageEnum.EN;
+  console.log("lang from Ls: ", lang);
+  // if (lang) selectedLanguage.value = lang as LanguageEnum;
+  if (lang) i18n.global.locale = lang as LanguageEnum;
+  // if (lang) selectedLanguage.value = lang as LanguageEnum;
+  // else selectedLanguage.value = LanguageEnum.EN;
 });
 </script>
 

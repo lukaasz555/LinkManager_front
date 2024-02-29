@@ -23,7 +23,11 @@ export default defineConfig({
       },
     }),
     VueI18nPlugin({
-      include: [path.resolve(__dirname, "./src/locales/**")],
+      include: [
+        path.resolve(__dirname, "./src/locales/pl.json"),
+        path.resolve(__dirname, "./src/locales/en.json"),
+      ],
+      runtimeOnly: false,
     }),
     ViteFonts({
       google: {
